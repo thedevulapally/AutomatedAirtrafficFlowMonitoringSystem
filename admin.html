@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="new.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap" rel="stylesheet">
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <style>
+        .fontStyle1 {
+            font-family: 'Trebuchet MS', sans-serif;
+        }
+
+        .fontStyle2 {
+            font-family: 'Times New Roman', serif;
+        }
+    </style>
+</head>
+
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light" id="nav">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03"
+            aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <img class="nav-img" src="./AAI_logo.png" alt="">
+        <a class="navbar-brand mr-auto" href="#" id="logoname">
+            <h4 class="brandname">Airports Authority of India</h4>
+        </a>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+            <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+              <li class="nav-item settingthings">
+                <a class="navbuttons navbtntoogler"  href="#Aschedule">Arrival Schedule</a>
+              </li>
+              <li class="nav-item">
+                <a class="navbuttons navbtntoogler"  href="#Dschedule">Departure Schedule</a>
+              </li>
+            </ul>
+        </div>
+        <div class="clock"></div>
+    </nav>
+    <br><br><br>
+
+    <button class="scrlupbtn" onclick="scrltop()"><img src="./up.png"></button>
+
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header border-bottom-0">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-title text-center">
+                        <h4>Admin Login</h4>
+                    </div>
+                    <div class="d-flex flex-column text-center">
+                        <form>
+                            <div class="form-group">
+                                <input type="username" class="form-control" id="uname" placeholder="Username">
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control" id="pword" placeholder="Password">
+                            </div>
+                            <button type="button" class="btn btn-info btn-block btn-round"
+                                onclick="adminLogin()">Login</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main">
+
+      <div class="headingndsearch">
+        <div class="row jstfroadding">
+          <div class="col-sm-6">
+            <h1 class="selectingair">Select to view airport-wise</h1>
+          </div>
+          <div class="col-sm-6">
+            <button class="btn dropdownbutton dropdown-toggle" type="button"
+              id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Select Airport
+            </button>
+            <div class="dropdown-menu pre-scrollable" aria-labelledby="dropdownMenuButton" id="ele">
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+        <div class="headingndsearch" id="Aschedule">
+            <br>
+            <div class=" arrival">
+              <div class="row">
+                <div class="col-sm-5 col-md-6">
+                  <h1 class="fontStyle2 scheduling">Arrival Schedule</h1>
+                </div>
+                <div class="col-sm-7 col-md-6">
+                  <div class="input-group rounded sandeep">
+                    <p class="searching">Start typing to search :</p>
+                    <input type="search" id="asearch" class="form-control style2" placeholder="Search Flight"
+                      aria-label="Search" aria-describedby="search-addon" />
+                  </div>
+                </div>
+              </div>
+                <div class="row" id="box">
+                    <div class="col"><h4>Edit Arrival Table:</h4></div>
+                    <div class="col">
+                        <select class="form-select" id="aflightsel" aria-label="Default select example">
+                            <option selected>Select Flight</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                          </select>
+                    </div>
+                    <div class="col">
+                        <select class="form-select" id="aattrsel" aria-label="Default select example">
+                            <option selected>select Attribute</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                          </select>
+                    </div>
+                    <div class="col inpt">
+                      <input type="text" class="form-control styl" placeholder="enter value" aria-label="Username" aria-describedby="basic-addon1" id="avalue">
+                      <button type="button" id="aedit" class="btn submitting" onclick="asubmit()">Submit</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="tble">
+            <div class="table-wrapper-scroll-y my-custom-scrollbar">
+                <!-- "table table-hover table-striped" -->
+                <table class="table table-hover table-striped" id="myTable1">
+                    <thead class="thead">
+                        <tr>
+                            <th scope="col">Flight No</th>
+                            <th scope="col">Airways</th>
+                            <th scope="col">ADEP</th>
+                            <th scope="col">ADES</th>
+                            <th scope="col">SLDT</th>
+                            <th scope="col">ELDT</th>
+                            <!-- <th scope="col">PLDT</th> -->
+                            <th scope="col">ALDT</th>
+                            <th scope="col">SIBT</th>
+                            <th scope="col">EIBT</th>
+                            <th scope="col">AIBT</th>
+                            <th scope="col">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody class="tbody" id="atbody">
+
+                    </tbody>
+                </table>
+                <br><br>
+            </div>
+        </div>
+
+
+        <div class="headingndsearch" id="Dschedule">
+            <br>
+            <div class=" arrival">
+              <div class="row">
+                <div class="col-sm-5 col-md-6">
+                  <h1 class="fontStyle2 scheduling">Departure Schedule</h1>
+                </div>
+                <div class="col-sm-7 col-md-6">
+                  <div class="input-group rounded sandeep">
+                    <p class="searching">Start typing to search :</p>
+                    <input type="search" id="dsearch" class="form-control style2" placeholder="Search Flight"
+                      aria-label="Search" aria-describedby="search-addon" />
+                  </div>
+                </div>
+              </div>
+                <div class="row">
+                    <div class="col"></div>
+                    <div class="col">Edit Departure Table:</div>
+                    <div class="col">
+                        <select class="form-select" id="dflightsel" aria-label="Default select example">
+                            <option selected>Select flight</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                          </select>
+                    </div>
+                    <div class="col">
+                        <select class="form-select" id="dattrsel" aria-label="Default select example">
+                            <option selected>select Attribute</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                          </select>
+                    </div>
+                    <div class="col inpt">
+                      <input type="text" class="form-control" placeholder="enter value" aria-label="Username" aria-describedby="basic-addon1" id="dvalue">
+                      <button type="button" id="aedit" class="btn" onclick="dsubmit()">Submit</button>
+                    </div>
+                    <div class="col"></div>
+                </div>
+            </div>
+        </div>
+        <div class="tble">
+            <div class="table-wrapper-scroll-y my-custom-scrollbar">
+                <table class="table table-hover table-striped" id="myTable">
+                    <thead class="thead">
+                        <tr>
+                            <th scope="col">Flight No</th>
+                            <th scope="col">Airways</th>
+                            <th scope="col">ADES</th>
+                            <th scope="col">ADEP</th>
+                            <th scope="col">SOBT</th>
+                            <th scope="col">EOBT</th>
+                            <th scope="col">AOBT</th>
+                            <th scope="col">STOT</th>
+                            <th scope="col">ETOT</th>
+                            <th scope="col">ATOT</th>
+
+                            <th scope="col">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody class="tbody" id="dtbody">
+
+                    </tbody>
+                </table>
+                <br><br>
+            </div>
+        </div>
+    </div>
+    <footer class="page-footer font-small teal pt-4">
+        <div class="footer-copyright text-center py-3">© 2021 Copyright:
+            <a href="https://www.aai.aero/"> www.aai.aero</a>
+        </div>
+    </footer>
+
+
+    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-database.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <script src="app.js"></script>
+
+</body>
+
+</html>
