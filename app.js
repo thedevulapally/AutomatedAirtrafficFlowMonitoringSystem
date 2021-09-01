@@ -22,8 +22,8 @@ var dd = String(myDate.getDate()).padStart(2, '0');
 var mm = String(myDate.getMonth() + 1).padStart(2, '0'); //January is 0!
 var yyyy = myDate.getFullYear();
 
-today = dd + mm + yyyy;
-//today = '26062021';
+//today = dd + mm + yyyy;
+today = '26062021';
 var welcome;
 var h = myDate.getHours();
 if(h<12){
